@@ -1,10 +1,14 @@
-# Google Colab Notebooks
+# 📓 Google Colab Notebooks
 
-This folder contains Google Colab notebooks that mirror the Python scripts in the `python/` folder. Each notebook is a single file you can open directly in Colab, run cell by cell, and modify without any local setup.
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/onuralpszr/litert-llm-cookbook/blob/main/colab/01_basic_chat.ipynb)
+[![LiteRT-LM](https://img.shields.io/badge/LiteRT--LM-nightly-4285F4?logo=google&logoColor=fff)](https://github.com/google-ai-edge/LiteRT-LM)
+[![Model](https://img.shields.io/badge/Model-Gemma--4%20E4B%20Instruct-orange?logo=google&logoColor=fff)](https://huggingface.co/litert-community/gemma-4-E4B-it-litert-lm)
+
+Google Colab notebooks that mirror the Python scripts in the `python/` folder. Each notebook is a single file you can open directly in Colab, run cell by cell, and modify without any local setup — no model download, no environment configuration, just click and run.
 
 ---
 
-## Notebooks
+## 📋 Notebooks
 
 | # | What it shows | Colab |
 |---|---------------|-------|
@@ -22,15 +26,15 @@ This folder contains Google Colab notebooks that mirror the Python scripts in th
 
 ---
 
-## How Colab is different from running locally
+## 🆚 How Colab differs from running locally
 
-When you run on Colab the model file needs to come from somewhere. A local `.litertlm` file sitting on your laptop is not accessible inside a Colab runtime. The notebooks handle this by downloading the model from Hugging Face at the start of each session. The download runs once per runtime and the file is stored at `/content/gemma-4-E2B-it.litertlm`. Every code cell that references `MODEL_PATH` points to that path.
+When you run on Colab the model file needs to come from somewhere — a local `.litertlm` file on your laptop is not accessible inside a Colab runtime. The notebooks handle this by downloading the model from Hugging Face at the start of each session. The download runs once per runtime and the file is stored at `/content/gemma-4-E4B-it.litertlm`. Every cell that references `MODEL_PATH` points to that path.
 
 If you connect to a Colab runtime with a GPU, examples 04, 05, and 10 will use it automatically. Free-tier runtimes usually offer a T4. If you have Colab Pro you can request an A100 or L4 for faster generation.
 
 ---
 
-## First-time setup (included in each notebook)
+## 🛠️ First-time setup (included in each notebook)
 
 Every notebook starts with two setup cells.
 
@@ -46,8 +50,8 @@ Every notebook starts with two setup cells.
 import subprocess
 subprocess.run([
     "curl", "-L",
-    "https://huggingface.co/litert-community/gemma-4-E2B-it-litert-lm/resolve/main/gemma-4-E2B-it.litertlm?download=true",
-    "-o", "/content/gemma-4-E2B-it.litertlm"
+    "https://huggingface.co/litert-community/gemma-4-E4B-it-litert-lm/resolve/main/gemma-4-E4B-it.litertlm?download=true",
+    "-o", "/content/gemma-4-E4B-it.litertlm"
 ], check=True)
 ```
 
@@ -55,7 +59,7 @@ After those two cells finish you can run the rest of the notebook in any order.
 
 ---
 
-## Notebook details
+## 📝 Notebook details
 
 ### 01 - Basic Chat
 
@@ -63,15 +67,15 @@ Sends a single message and prints the full response. Good for a first sanity che
 
 ### 02 - Streaming Chat Loop
 
-Because Colab does not have an interactive terminal loop, this notebook uses a fixed list of questions and streams the answers one by one, printing tokens as they arrive. You can edit the question list in the cell to try your own prompts.
+Because Colab does not have an interactive terminal loop, this notebook uses a fixed list of questions and streams the answers one by one, printing tokens as they arrive. Edit the question list to try your own prompts.
 
 ### 03 - System Prompt
 
-Shows how to set a system persona before the first user message. The notebook uses the concise Python expert persona from the script and asks two follow-up questions to demonstrate that the persona carries across turns.
+Shows how to set a system persona before the first user message. The notebook uses a concise Python expert persona and asks two follow-up questions to demonstrate that the persona carries across turns.
 
 ### 04 - GPU Backend
 
-Initialises the engine with the GPU backend. Make sure to select a GPU runtime in Colab before running this notebook. Go to Runtime, then Change runtime type, and pick T4 GPU or any other available GPU option.
+Initialises the engine with the GPU backend. Make sure to select a GPU runtime in Colab before running: go to **Runtime**, then **Change runtime type**, and pick **T4 GPU** or any available GPU option.
 
 ### 05 - Speculative Decoding
 
@@ -79,7 +83,7 @@ Adds multi-token prediction on top of the GPU backend. The notebook includes a t
 
 ### 06 - Tool Use
 
-Defines Python functions as tools and passes them to the model. The model calls them automatically when a question requires computation or a lookup.
+Defines six Python functions across five categories (arithmetic, unit conversion, weather, country info, BMI) and passes them as tools. Each category runs in its own focused conversation so the model only sees the tools it needs. The model calls them automatically when a question requires a lookup or calculation.
 
 ### 07 - Multimodal Audio
 
@@ -95,7 +99,7 @@ Sets a senior software engineer persona and streams the answer to a question abo
 
 ### 10 - All Features Combined
 
-The kitchen-sink demo: GPU, speculative decoding, tools, and streaming in one notebook. Three queries run in sequence. Two call tools and one is free-form. Requires a GPU runtime.
+The kitchen-sink demo: GPU, speculative decoding, tools, and streaming in one notebook. Three queries run in sequence — two call tools and one is free-form. Requires a GPU runtime.
 
 ### 11 - OpenAI and Gemini API Server
 
@@ -103,14 +107,14 @@ The server runs in a background subprocess and client cells connect to it over l
 
 ---
 
-## Tips for working in Colab
+## 💡 Tips for working in Colab
 
 The runtime is recycled after 90 minutes of inactivity on the free tier, which means the downloaded model and installed packages are gone. If you are doing extended work, consider saving the `.litertlm` file to Google Drive and mounting Drive at the start of each session to avoid re-downloading.
 
 ```python
 from google.colab import drive
 drive.mount('/content/drive')
-MODEL_PATH = "/content/drive/MyDrive/models/gemma-4-E2B-it.litertlm"
+MODEL_PATH = "/content/drive/MyDrive/models/gemma-4-E4B-it.litertlm"
 ```
 
 That way the multi-gigabyte download only happens once and subsequent sessions load from Drive in a fraction of the time.
