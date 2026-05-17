@@ -17,7 +17,7 @@ def _clean(value: str) -> str:
     return value.replace('<|"|>', "").strip()
 
 
-# Arithmetic 
+# Arithmetic
 
 
 def add_numbers(a: float, b: float) -> float:
@@ -40,7 +40,7 @@ def multiply_numbers(a: float, b: float) -> float:
     return a * b
 
 
-# Unit conversion 
+# Unit conversion
 
 
 def celsius_to_fahrenheit(celsius: float) -> float:
@@ -52,7 +52,7 @@ def celsius_to_fahrenheit(celsius: float) -> float:
     return celsius * 9 / 5 + 32
 
 
-# Weather 
+# Weather
 
 
 def get_current_weather(city: str) -> str:
@@ -64,7 +64,7 @@ def get_current_weather(city: str) -> str:
     return f"The weather in {city} is sunny and 22°C."
 
 
-# Country info 
+# Country info
 
 
 def get_country_capital(country: str) -> str:
@@ -84,7 +84,7 @@ def get_country_capital(country: str) -> str:
     return capitals.get(country, f"Capital of {country} not found.")
 
 
-# BMI 
+# BMI
 
 
 def calculate_bmi(weight_kg: float, height_m: float) -> float:
@@ -97,7 +97,7 @@ def calculate_bmi(weight_kg: float, height_m: float) -> float:
     return round(weight_kg / (height_m**2), 2)
 
 
-# Run each category in its own conversation 
+# Run each category in its own conversation
 
 GROUPS = [
     (

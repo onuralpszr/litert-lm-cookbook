@@ -20,7 +20,7 @@ samples = [
 ]
 
 with litert_lm.Engine(MODEL_PATH) as engine:
-    #  Part A: inspect token ids 
+    #  Part A: inspect token ids
     print("=== Part A: encoding ===")
     for text in samples:
         ids = engine.tokenize(text)
@@ -30,7 +30,7 @@ with litert_lm.Engine(MODEL_PATH) as engine:
         print(f"Decoded : {recovered!r}")
         print()
 
-    #  Part B: token budget guard 
+    #  Part B: token budget guard
     print(f"=== Part B: budget guard (limit = {TOKEN_BUDGET} tokens) ===")
     long_prompt = " ".join(["word"] * 80)
     ids = engine.tokenize(long_prompt)

@@ -231,7 +231,7 @@ if __name__ == "__main__":
     openai_raw_http_basic()
     openai_raw_http_streaming()
 
-    # emini API (requires: litert-lm serve --api gemini) 
+    # emini API (requires: litert-lm serve --api gemini)
     # gemini_basic()
     # gemini_with_system_instruction()
     # gemini_multi_turn()
