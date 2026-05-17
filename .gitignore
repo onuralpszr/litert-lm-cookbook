@@ -230,3 +230,13 @@ claude_config.json
 *.litertlm
 *.xnnpack*
 *.profraw
+*.bin
+
+# Image 
+*.png
+*.jpg
+*.jpeg
+
+# Audio
+*.wav
+*.mp3
