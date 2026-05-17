@@ -60,9 +60,7 @@ def openai_streaming() -> None:
         "stream": True,
     }
     event_type = None
-    with requests.post(
-        f"{HOST}/v1/responses", json=payload, stream=True, timeout=60
-    ) as resp:
+    with requests.post(f"{HOST}/v1/responses", json=payload, stream=True, timeout=60) as resp:
         resp.raise_for_status()
         for line in resp.iter_lines():
             if not line:
@@ -109,9 +107,7 @@ def openai_raw_http_streaming() -> None:
         "input": "Name three things Turkey is famous for.",
         "stream": True,
     }
-    with requests.post(
-        f"{HOST}/v1/responses", json=payload, stream=True, timeout=60
-    ) as resp:
+    with requests.post(f"{HOST}/v1/responses", json=payload, stream=True, timeout=60) as resp:
         resp.raise_for_status()
         for line in resp.iter_lines():
             if not line:
@@ -145,9 +141,7 @@ def gemini_basic() -> None:
     """Non-streaming Gemini generateContent."""
     print("=== B1. Gemini API — basic ===")
     payload = {
-        "contents": [
-            {"role": "user", "parts": [{"text": "What is the capital of Turkey?"}]}
-        ]
+        "contents": [{"role": "user", "parts": [{"text": "What is the capital of Turkey?"}]}]
     }
     resp = requests.post(f"{GEMINI_BASE}:generateContent", json=payload, timeout=60)
     resp.raise_for_status()
@@ -161,11 +155,11 @@ def gemini_with_system_instruction() -> None:
     print("=== B2. Gemini API — system instruction ===")
     payload = {
         "systemInstruction": {
-            "parts": [{"text": "You are a concise geography expert. Keep answers under two sentences."}]
+            "parts": [
+                {"text": "You are a concise geography expert. Keep answers under two sentences."}
+            ]
         },
-        "contents": [
-            {"role": "user", "parts": [{"text": "Tell me about Trabzon."}]}
-        ],
+        "contents": [{"role": "user", "parts": [{"text": "Tell me about Trabzon."}]}],
     }
     resp = requests.post(f"{GEMINI_BASE}:generateContent", json=payload, timeout=60)
     resp.raise_for_status()
@@ -179,8 +173,14 @@ def gemini_multi_turn() -> None:
     print("=== B3. Gemini API — multi-turn ===")
     payload = {
         "contents": [
-            {"role": "user", "parts": [{"text": "Name one city on the Black Sea coast of Turkey."}]},
-            {"role": "model", "parts": [{"text": "Trabzon is a major city on the Black Sea coast."}]},
+            {
+                "role": "user",
+                "parts": [{"text": "Name one city on the Black Sea coast of Turkey."}],
+            },
+            {
+                "role": "model",
+                "parts": [{"text": "Trabzon is a major city on the Black Sea coast."}],
+            },
             {"role": "user", "parts": [{"text": "What is that city known for?"}]},
         ]
     }
@@ -214,7 +214,9 @@ def gemini_streaming() -> None:
                 raw = text[6:]
                 try:
                     chunk = json.loads(raw)
-                    for part in chunk.get("candidates", [{}])[0].get("content", {}).get("parts", []):
+                    for part in (
+                        chunk.get("candidates", [{}])[0].get("content", {}).get("parts", [])
+                    ):
                         t = part.get("text", "")
                         if t:
                             print(t, end="", flush=True)

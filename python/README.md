@@ -10,16 +10,16 @@ Eleven standalone Python scripts that walk through the LiteRT-LM Python API step
 
 ## ⚙️ Setup
 
-Install the dependencies from the project root:
+Install the dependencies from the project root with `uv` (recommended):
 
 ```bash
-pip install -r ../requirements.txt
+uv sync
 ```
 
-Or with `uv`:
+Or with `pip`:
 
 ```bash
-uv pip install -r ../requirements.txt
+pip install -r requirements.txt
 ```
 
 ---

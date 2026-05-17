@@ -43,17 +43,19 @@ litert-llm-cookbook/
 
 ## 📦 Installation
 
+With `uv` (recommended):
+
+```bash
+uv sync
+```
+
+Or with `pip`:
+
 ```bash
 pip install -r requirements.txt
 ```
 
-Or with `uv`:
-
-```bash
-uv pip install -r requirements.txt
-```
-
-The `requirements.txt` pulls in `litert-lm-api-nightly`, `litert-lm`, `openai`, and `requests`.
+The project is defined in `pyproject.toml`. `uv sync` resolves dependencies and creates a `.venv` in the project root. Dev dependencies (ruff) are included automatically.
 
 ---
 

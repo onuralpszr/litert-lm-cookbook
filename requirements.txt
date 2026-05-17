@@ -1,3 +1,9 @@
+# Install via uv (recommended):
+#   uv sync
+#
+# Or with pip:
+#   pip install -r requirements.txt
+
 litert-lm-api-nightly
 litert-lm
 openai
