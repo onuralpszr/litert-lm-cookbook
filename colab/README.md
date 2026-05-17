@@ -4,7 +4,7 @@
 [![LiteRT-LM](https://img.shields.io/badge/LiteRT--LM-nightly-4285F4?logo=google&logoColor=fff)](https://github.com/google-ai-edge/LiteRT-LM)
 [![Model](https://img.shields.io/badge/Model-Gemma--4%20E4B%20Instruct-orange?logo=google&logoColor=fff)](https://huggingface.co/litert-community/gemma-4-E4B-it-litert-lm)
 
-Google Colab notebooks that mirror the Python scripts in the `python/` folder. Each notebook is a single file you can open directly in Colab, run cell by cell, and modify without any local setup no model download, no environment configuration, just click and run.
+Google Colab notebooks that mirror the Python scripts in the `python/` folder. Each notebook is a single file you can open directly in Colab, run cell by cell, and modify without any local setup: no model download, no environment configuration, just click and run.
 
 ---
 

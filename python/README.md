@@ -152,7 +152,7 @@ python 09_streaming_with_system_prompt.py
 
 ### 10_all_features.py
 
-The kitchen-sink demo: GPU, speculative decoding, tools, and streaming all at once. Three queries run in sequence two exercise tools and one is free-form. A good reference for a production-like setup.
+The kitchen-sink demo: GPU, speculative decoding, tools, and streaming all at once. Three queries run in sequence: two exercise tools and one is free-form. A good reference for a production-like setup.
 
 ```bash
 python 10_all_features.py
@@ -164,7 +164,7 @@ python 10_all_features.py
 
 This script connects to a local LiteRT-LM server over HTTP rather than loading a model file directly. Two server modes are supported; pick one before running.
 
-**Step 1 import the model into the local store (one-time only):**
+**Step 1: import the model into the local store (one-time only):**
 
 ```bash
 litert-lm import \
@@ -174,19 +174,19 @@ litert-lm import \
 
 The model ends up at `~/.litert-lm/models/gemma-4-E4B-it.litertlm/model.litertlm`. This step only needs to run once.
 
-**Step 2a start the OpenAI Responses API server:**
+**Step 2a: start the OpenAI Responses API server:**
 
 ```bash
 litert-lm serve --api openai --host localhost --port 9379
 ```
 
-**Step 2b or start the Gemini API server:**
+**Step 2b: or start the Gemini API server:**
 
 ```bash
 litert-lm serve --api gemini --host localhost --port 9379
 ```
 
-**Step 3 run the client in a separate terminal:**
+**Step 3: run the client in a separate terminal:**
 
 ```bash
 python 11_openai_api_server.py
