@@ -1,0 +1,42 @@
+cff-version: 1.2.0
+message: "If you use this cookbook in your research or work, please cite it as below."
+type: software
+title: "LiteRT-LM Cookbook"
+abstract: >
+  A collection of runnable Python scripts and Google Colab notebooks showing how to
+  use LiteRT-LM to run Gemma-4 completely on-device. Covers single-turn chat,
+  streaming, system prompts, GPU acceleration, speculative decoding, tool use,
+  multimodal audio and vision, and a local OpenAI/Gemini-compatible API server.
+authors:
+  - family-names: Sezer
+    given-names: Onuralp
+    orcid: ""
+repository-code: "https://github.com/onuralpszr/litert-llm-cookbook"
+url: "https://github.com/onuralpszr/litert-llm-cookbook"
+license: Apache-2.0
+version: "1.0.0"
+date-released: "2025-01-01"
+keywords:
+  - LiteRT-LM
+  - Gemma
+  - on-device AI
+  - large language models
+  - Google AI Edge
+  - function calling
+  - multimodal
+references:
+  - type: software
+    title: "LiteRT-LM"
+    url: "https://github.com/google-ai-edge/LiteRT-LM"
+    authors:
+      - name: "Google AI Edge"
+  - type: software
+    title: "Gemma"
+    url: "https://ai.google.dev/gemma"
+    authors:
+      - name: "Google DeepMind"
+  - type: dataset
+    title: "litert-community on Hugging Face"
+    url: "https://huggingface.co/litert-community"
+    authors:
+      - name: "litert-community"
